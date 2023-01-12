@@ -24,4 +24,5 @@ class Calculator (
     }
 
     fun isExpectedNumber(expected: Int) = number == expected
+    fun getNumber() = number
 }
