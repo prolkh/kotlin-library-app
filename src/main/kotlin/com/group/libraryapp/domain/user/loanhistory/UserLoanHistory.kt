@@ -5,11 +5,14 @@ import javax.persistence.*
 
 @Entity
 class UserLoanHistory (
-        @ManyToOne
+    @ManyToOne
     val user: User,
-        val bookName: String,
-        var isReturn: Boolean,
-        @Id
+
+    val bookName: String,
+
+    var isReturn: Boolean,
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
 ){
