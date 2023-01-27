@@ -10,6 +10,7 @@ class UserLoanHistory (
 
     val bookName: String,
 
+    @Enumerated(EnumType.STRING)
     var status: UserLoanStatus = UserLoanStatus.LOANED,
 
     @Id
@@ -23,16 +24,11 @@ class UserLoanHistory (
     companion object {
         fun fixture(
             user: User,
-            bookName: String = "클린 코드",
+            bookName: String = "Clean Code",
             status: UserLoanStatus = UserLoanStatus.LOANED,
             id: Long? = null
         ): UserLoanHistory {
-            return UserLoanHistory(
-                user = user,
-                bookName = bookName,
-                status = status,
-                id = id
-            )
+            return UserLoanHistory(user, bookName, status, id)
         }
     }
 }

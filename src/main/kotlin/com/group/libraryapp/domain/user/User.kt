@@ -2,7 +2,6 @@ package com.group.libraryapp.domain.user
 
 import com.group.libraryapp.domain.book.Book
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory
-import java.lang.IllegalArgumentException
 import javax.persistence.CascadeType
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -24,9 +23,7 @@ class User (
     val id: Long? = null,
 ){
     init {
-        if (name.isBlank()) {
-            throw IllegalArgumentException("이름은 비어 있을 수 없습니다")
-        }
+        require(name.isNotBlank()) { "이름은 비어 있을 수 없습니다." }
     }
 
 

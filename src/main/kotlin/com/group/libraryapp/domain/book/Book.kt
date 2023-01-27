@@ -15,22 +15,16 @@ class Book (
 ){
 
     init {
-        if(name.isBlank()) {
-            throw java.lang.IllegalArgumentException("이름은 비어 있을 수 없습니다")
-        }
+        require(name.isNotBlank()) { "이름은 비어 있을 수 없습니다." }
     }
 
     companion object {
         fun fixture(
-            name: String = "책이름",
+            name: String = "Book Name",
             type: BookType = BookType.COMPUTER,
             id: Long? = null,
         ): Book {
-            return Book(
-                name = name,
-                type = type,
-                id = id,
-            )
+            return Book(name, type, id)
         }
     }
 }
